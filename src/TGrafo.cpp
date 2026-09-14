@@ -10,21 +10,21 @@ TGrafo::TGrafo( int n ){
     // aloca da matriz do TGrafo
     int **adjac = new int*[n];
     for(int i = 0; i < n; i++)
-    	adjac[i]= new int[n];
+        adjac[i]= new int[n];
     adj = adjac;
     // Inicia a matriz com zeros
-	for(int i = 0; i< n; i++)
-		for(int j = 0; j< n; j++)
-			adj[i][j]=0;	
+    for(int i = 0; i< n; i++)
+        for(int j = 0; j< n; j++)
+            adj[i][j]=0;    
 }
 
 // Destructor, respons�vel por
 // liberar a mem�ria alocada para a matriz
 TGrafo::~TGrafo(){
-	n = 0;
-	m = 0;
-	delete [] *adj;
-	std::cout << "espa�o liberado";
+    n = 0;
+    m = 0;
+    delete [] *adj;
+    std::cout << "espaco liberado" << std::endl;
 }
 
 // Insere uma aresta no Grafo tal que
@@ -49,7 +49,7 @@ void TGrafo::removeA(int v, int w){
 // Apresenta o Grafo contendo
 // n�mero de v�rtices, arestas
 // e a matriz de adjac�ncia obtida
-void TGrafo::show(){
+void TGrafo::show_(){
     std::cout << "n: " << n << std::endl;
     std::cout << "m: " << m << std::endl;
     for( int i=0; i < n; i++){
@@ -60,5 +60,26 @@ void TGrafo::show(){
             else std::cout << "Adj[" << i<< "," << w << "]= 0" << " ";
     }
     std::cout <<"\nfim da impressao do grafo." << std::endl;
+}
+
+// Apresenta a matriz de adjacencia em formato tabular
+void TGrafo::show(){
+    std::cout << "   ";
+    for(int w = 0; w < n; w++){
+        if(w > 0)
+            std::cout << " ";
+        std::cout << w;
+    }
+    std::cout << std::endl;
+
+    for(int i = 0; i < n; i++){
+        std::cout << i << " [";
+        for(int w = 0; w < n; w++){
+            if(w > 0)
+                std::cout << " ";
+            std::cout << adj[i][w];
+        }
+        std::cout << "]" << std::endl;
+    }
 }
 

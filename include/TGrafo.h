@@ -20,6 +20,7 @@ class TGrafo{
 		void insereA(int v, int w);
 		void removeA(int v, int w);
 		void show();
+		void show_();
 		~TGrafo();		
 };
 
