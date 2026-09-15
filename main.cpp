@@ -12,7 +12,7 @@
  * |=================================|==========|
  */
 
-#include "include/TGrafo.hpp"
+#include "include/TGrafo.h"
 #include "include/utils.hpp"
 
 int main() {

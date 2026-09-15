@@ -16,7 +16,7 @@
 #define UTILS_HPP
 
 #include <iostream>
-#include "../include/TGrafo.hpp"
+#include "../include/TGrafo.h"
 
 void preencher_grafos(TGrafo& g1, TGrafo& g2);
 void print_vector_int(std::vector<int> v);
