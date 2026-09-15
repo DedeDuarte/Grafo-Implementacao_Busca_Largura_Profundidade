@@ -10,6 +10,7 @@
  * |======================|==========|
  */
 
+#include <iostream>
 #include "include/TGrafo.h"
 
 void preencher_grafos(TGrafo& g1, TGrafo& g2) {
@@ -37,6 +38,16 @@ void preencher_grafos(TGrafo& g1, TGrafo& g2) {
     g2.insereA(3, 2);
 }
 
+void print_vector_int(std::vector<int> v) {
+    std::cout << "[";
+
+    int i;
+    for (i = 0; i < (int)v.size()-1; i++)
+        std::cout << v[i] << ", ";
+
+    std::cout << v[i] << "]" << std::endl;
+}
+
 int main() {
     // Crinado grafos
     TGrafo g1(8);
@@ -48,7 +59,9 @@ int main() {
     g1.show();
     g2.show();
 
-    
+    std::vector<int> visitados = g1.busca_profundidade(0);
+
+    print_vector_int(visitados);
 
     return 0;
 }

@@ -1,5 +1,15 @@
 #include <iostream>
+#include <stack>
 #include "../include/TGrafo.h"
+
+bool _vector_find(const std::vector<int>& v, const int num) {
+    for (auto i : v) {
+        if (i == num)
+            return true;
+    }
+
+    return false;
+}
 
 /*
     Construtor do TGrafo, responsável por 
@@ -51,7 +61,7 @@ void TGrafo::insereA( int v, int w){
 }
 
 /*
-    remove uma aresta v->w do Grafo
+    Remove uma aresta v->w do Grafo
 */
 void TGrafo::removeA(int v, int w){
     // testa se temos a aresta
@@ -109,3 +119,28 @@ void TGrafo::show(){
     }
 }
 
+std::vector<int> TGrafo::busca_profundidade(int inicial) {
+    std::vector<int> visitados;
+    std::stack<int> stack;
+    int no = inicial;
+
+    visitados.push_back(no);
+    stack.push(no);
+
+    while (!stack.empty()) {
+        no = stack.top();
+        stack.pop();
+
+        for (int i = 0; i < this->n; i++) {
+            if (this->adj[no][i] == 0 || _vector_find(visitados, i))
+                continue;
+
+            visitados.push_back(i);
+            stack.push(no);
+
+            no = i;
+        }
+    }
+
+    return visitados;
+}
