@@ -59,9 +59,11 @@ int main() {
     g1.show();
     g2.show();
 
-    std::vector<int> visitados = g1.busca_profundidade(0);
-
-    print_vector_int(visitados);
+    std::vector<int> visitados_g1 = g1.busca_profundidade(0);
+    std::vector<int> visitados_g2 = g2.busca_profundidade(0);
+    
+    print_vector_int(visitados_g1);
+    print_vector_int(visitados_g2);
 
     return 0;
 }
