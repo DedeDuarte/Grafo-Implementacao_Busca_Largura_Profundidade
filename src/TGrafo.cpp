@@ -1,6 +1,21 @@
+/**
+ * Implementação:
+ * Busca em Largura e Profundidade (Grupo do Projeto)
+ * 
+ * Integrantes:
+ * |=================================|==========|
+ * |               Nome              |    RA    |
+ * |---------------------------------|----------|
+ * | André Doerner Duarte            | 10427938 |
+ * | Matheus Leonardo Cardoso Kroeff | 10426434 |
+ * | Naoto Ushizaki                  | 10437445 |
+ * |=================================|==========|
+ */
+
 #include <iostream>
 #include <stack>
-#include "../include/TGrafo.h"
+#include <queue>
+#include "../include/TGrafo.hpp"
 
 bool _vector_find(const std::vector<int>& v, const int num) {
     for (auto i : v) {
@@ -139,6 +154,30 @@ std::vector<int> TGrafo::busca_profundidade(int inicial) {
             stack.push(no);
 
             no = i;
+        }
+    }
+
+    return visitados;
+}
+
+std::vector<int> TGrafo::busca_largura(int inicial) {
+    std::vector<int> visitados;
+    std::queue<int> queue;
+    int no = inicial;
+
+    visitados.push_back(no);
+    queue.push(no);
+
+    while (!queue.empty()) {
+        no = queue.front();
+        queue.pop();
+
+        for (int i = 0; i < this->n; i++) {
+            if (this->adj[no][i] == 0 || _vector_find(visitados, i))
+                continue;
+
+            visitados.push_back(i);
+            queue.push(i);
         }
     }
 

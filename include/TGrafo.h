@@ -1,3 +1,17 @@
+/**
+ * Implementação:
+ * Busca em Largura e Profundidade (Grupo do Projeto)
+ * 
+ * Integrantes:
+ * |=================================|==========|
+ * |               Nome              |    RA    |
+ * |---------------------------------|----------|
+ * | André Doerner Duarte            | 10427938 |
+ * | Matheus Leonardo Cardoso Kroeff | 10426434 |
+ * | Naoto Ushizaki                  | 10437445 |
+ * |=================================|==========|
+ */
+
 /*
 Implementação de uma Classe para grafos denominada TGrafo,
 usando Matriz de Adjacência
@@ -22,7 +36,8 @@ class TGrafo{
         void removeA(int v, int w);
         void show();
         void show_();
-		std::vector<int> busca_profundidade(int inicial);
+        std::vector<int> busca_profundidade(int inicial);
+        std::vector<int> busca_largura(int inicial);
         ~TGrafo();
 };
 
