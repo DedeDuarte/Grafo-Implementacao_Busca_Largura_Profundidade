@@ -27,8 +27,8 @@ void preencher_grafos(TGrafo& g1, TGrafo& g2) {
     g1.insereA(3, 7);
     g1.insereA(4, 7);
     g1.insereA(5, 4);
-    g1.insereA(5, 6); // Six Seven hehe
-    g1.insereA(6, 7);
+    g1.insereA(5, 6);
+    g1.insereA(6, 7); // Six Seven hehe
 
     // Criando vertices para G2
     g2.insereA(0, 1);
